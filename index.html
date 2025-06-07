@@ -1,0 +1,277 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart City </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <style>
+    /* Add smooth scrolling behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Highlight active navigation item */
+    .nav-links a.active {
+      color: #3498db;
+      font-weight: 600;
+      border-bottom: 2px solid #3498db;
+    }
+    
+    /* Add some spacing for sections */
+    section {
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header/Navigation -->
+  <header class="main-header">
+    <nav>
+      <div class="logo">SmartCity</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#dashboard" class="nav-link ">Dashboard</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+    
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Smart City</h1>
+      <p>Real-time monitoring and control of urban infrastructure</p>
+    </div>
+    <img src="home.jpg" alt="Smart City Overview" class="hero-image">
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+      <div class="status-grid">
+        <div id="parking-status" class="status-card">
+          <h2>🚗 Parking Status</h2>
+          <!-- Content will be populated by script.js -->
+        </div>
+        <div id="alerts" class="status-card alert-card">
+          <h2>⚠️ Alerts</h2>
+          <!-- Content will be populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <h2 class="section-title">🌆 Smart City Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌙</div>
+          <h3>Automatic Street Lights</h3>
+          <p>Street lights automatically turn on at night to ensure safety and save energy.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗑️</div>
+          <h3>Smart Dustbins</h3>
+          <p>IoT-enabled dustbins in parks help keep the environment clean by notifying waste levels.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚦</div>
+          <h3>Traffic Control Lights</h3>
+          <p>Fully automated traffic lights maintain proper traffic flow during peak and non-peak hours.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">☔</div>
+          <h3>Rain-Shaded Parking</h3>
+          <p>During rain, smart shades cover parking areas for vehicle and pedestrian protection.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍽️</div>
+          <h3>Outdoor Café</h3>
+          <p>Enjoy delicious meals with scenic outdoor dining areas, equipped with fire detectors for safety.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔥</div>
+          <h3>Fire & Smog Detectors</h3>
+          <p>Real-time alerts from sensors in food courts and construction areas for immediate response.</p>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <!-- About Section -->
+   <section id="about">
+  <h2 class="section-title">About The Project</h2>
+  <div class="about-content">
+    <div class="about-grid">
+      <div class="about-text">
+        <h3>Revolutionizing Urban Living Through IoT</h3>
+        <p class="lead-text">
+          Our Smart City Dashboard represents a transformative approach to urban management, 
+          harnessing cutting-edge IoT technology to create safer, more efficient, and sustainable 
+          city infrastructure.
+        </p>
+        <ul class="highlights">
+      <li><strong>Real-Time Urban Monitoring</strong> – IoT-powered dashboard tracks city infrastructure 24/7</li>
+      <li><strong>Automated Efficiency</strong> – Smart systems optimize parking, traffic, and waste management</li>
+      <li><strong>Safety-First Design</strong> – Integrated detectors and emergency alerts protect citizens</li>
+         </ul>
+        <!-- Additional content can go here -->
+      </div>
+      <div class="about-image">
+        <img src="about.jpg" alt="Smart City Infrastructure" class="featured-image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .highlights {
+  list-style-type: none;
+  padding-left: 0;
+}
+.highlights li {
+  padding: 8px 0;
+  position: relative;
+  padding-left: 30px;
+}
+.highlights li:before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-size: 1.2em;
+}
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: all 0.3s ease;
+  }
+
+  .featured-image:hover {
+    transform: perspective(1000px) rotateY(0deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+      order: -1;
+      margin-bottom: 30px;
+    }
+  }
+</style>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>© 2025 Smart City Dashboard | Group Project by 221015 Aliya Saqib, 221017 Aashfa Noor, 221095 Zainab Moazzam</p>
+  </footer>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: " ",
+      authDomain: " ",
+      databaseURL: " ",
+      projectId: " ",
+      storageBucket: " ",
+      messagingSenderId: " ",
+      appId: " ",
+      measurementId: ""
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Function to update the dashboard
+    function updateDashboard(data) {
+      const parking = data?.parking_system?.parking || {};
+      const environment = data?.parking_system?.environment || {};
+      
+      // Update parking status
+      document.getElementById('parking-status').innerHTML = `
+        <h2>🚗 Parking Status</h2>
+        <p>Slot 1: ${parking.slot1 ? 'Occupied' : 'Available'}</p>
+        <p>Slot 2: ${parking.slot2 ? 'Occupied' : 'Available'}</p>
+        <p>Available Slots: ${parking.available || 0}</p>
+        <p>Entry: ${parking.entry ? 'Open' : 'Closed'}</p>
+        <p>Exit: ${parking.exit ? 'Open' : 'Closed'}</p>
+      `;
+
+      // Update alerts
+      let alerts = [];
+      if (environment.rain === true) alerts.push('<div class="alert rain">🌧️ Rain Alert: Shade activated in parking area</div>');
+      if (environment.fire === true) alerts.push('<div class="alert fire">🔥 Fire Alert in Food Court: Evacuate immediately</div>');
+      if (environment.smog === true) alerts.push('<div class="alert smog">🌫️ Smog Alert in Construction Zone: Hazardous air</div>');
+
+      document.getElementById('alerts').innerHTML = `
+        <h2>⚠️ Alerts</h2>
+        ${alerts.length ? alerts.join('') : '<div class="alert normal">All systems normal</div>'}
+      `;
+    }
+
+    // Listen to Firebase changes
+    db.ref('/').on('value', (snapshot) => {
+      if (snapshot.exists()) {
+        updateDashboard(snapshot.val());
+      }
+    });
+
+    // Navigation active state management
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      // Set initial active state
+      setActiveLink();
+      
+      // Update active state on scroll
+      window.addEventListener('scroll', function() {
+        setActiveLink();
+      });
+      
+      function setActiveLink() {
+        const scrollPosition = window.scrollY;
+        
+        // Check each section
+        document.querySelectorAll('section[id]').forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            const id = section.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
