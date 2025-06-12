@@ -5,7 +5,7 @@
 This project implements an automated smart city model using Arduino Uno, integrating multiple IoT systems for urban management. The system includes real-time parking management, automatic street lighting, environmental monitoring like fire detection, and smart waste management solutions. All sensor data is streamed to Firebase and visualized on a web dashboard for real-time monitoring.
 
 ## Demonstration Video
-<div align="center"> <video width="80%" controls> <source src="Video.mp4" type="video/mp4"> Your browser does not support the video tag. </video> <p><em>System demonstration showing all features in operation</em></p> </div>
+[Watch the demonstration video on Google Drive](https://drive.google.com/file/d/1YEccFAW-U2yHY1XbZa6Uul-JqE_Oa1fJ/view?usp=drive_link)
 
 ## Features
 
